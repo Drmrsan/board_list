@@ -1,0 +1,11 @@
+<div class="container">
+	<h1>Board List</h1>
+	<% @board.each do |board| %>
+		<ul>
+			<li class="well">
+				<%= link_to board.title , board %>
+			</li>
+		</ul>
+	<% end %>
+</div>
+
