@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  title: MyString
+  description: MyText
+  duedate: 2016-02-25
+  to_do_id: 1
+
+two:
+  title: MyString
+  description: MyText
+  duedate: 2016-02-25
+  to_do_id: 1
