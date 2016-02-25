@@ -1,6 +1,8 @@
-<h1>New Board</h1>
+<div class="container">
+	<h1>New Board</h1>
 
-<%= simple_form_for @board do |f| %>
-	<%= f.input :title %>
-	<%= f.button :submit %>
-<% end %>
+	<%= simple_form_for @board do |f| %>
+		<%= f.input :title %>
+		<%= f.button :submit %>
+	<% end %>
+</div>

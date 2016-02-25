@@ -22,11 +22,9 @@ class BoardsController < ApplicationController
 	end
 
 	def show
-		
 	end
 
 	def edit
-		
 	end
 
 	def update
@@ -35,6 +33,11 @@ class BoardsController < ApplicationController
 		else
 			render 'edit'
 		end
+	end
+
+	def destroy
+		@board.destroy
+		redirect_to boards_path
 	end
 
 	private

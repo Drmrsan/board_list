@@ -1,1 +1,7 @@
-bla
+<% @to_do.cards.each do |card| %>
+	<div class="well">
+		<%= card.title %>		
+	</div>
+<% end %>
+
+<%= render 'cards/form' %>

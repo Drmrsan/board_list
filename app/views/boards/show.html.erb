@@ -2,10 +2,9 @@
 	<h1><%= @board.title %></h1>
 
 	<%= link_to "Edit Board", edit_board_path(@board), class: "btn btn-sm btn-warning" %>
+	<%= link_to "Delete Board", board_path(@board), method: :delete, data: {confirm: "Are you sure"}, class:"btn btn-sm btn-danger" %>
 	<%= link_to "Back to Boards", boards_path, class: "btn btn-sm btn-default" %>
 
-	<h3>To Do's</h3> 
-	
 	<div class="row">
 		<div class="col-md-12">
 			<%= render @board.to_dos %>
@@ -14,8 +13,5 @@
 			</div>
 		</div>
 	</div>
-
-	
-	
 </div>
 

@@ -1,7 +1,8 @@
 class ToDosController < ApplicationController
 
-	before_action :find_board, only: [:create, :show]
-	before_action :find_todo, only: [:show]
+	before_action :find_board, only: [:create, :show, :edit, :update]
+	before_action :find_todo, only: [:show, :edit, :update]
+
 
 	def create
 		@to_do = @board.to_dos.create(todo_params)
@@ -17,6 +18,17 @@ class ToDosController < ApplicationController
 		
 	end
 
+	def edit
+	end
+
+	def update
+		if @to_do.update(todo_params)
+			redirect_to @board
+		else
+			render 'edit'
+		end
+	end
+
 	private
 
 	def todo_params
@@ -30,4 +42,5 @@ class ToDosController < ApplicationController
 	def find_todo
 		@to_do = @board.to_dos.find(params[:id])
 	end
+
 end
