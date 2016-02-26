@@ -1,4 +1,4 @@
 <%= simple_form_for ([@board, @to_do, @to_do.cards.build]) do |f| %>
-	<%= f.input :title %>
+	<%= f.input :title, label: "Create new card" %>
 	<%= f.button :submit %>
 <% end %>

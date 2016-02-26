@@ -1,7 +1,14 @@
-<% @to_do.cards.each do |card| %>
-	<div class="well">
-		<%= card.title %>		
-	</div>
-<% end %>
-
-<%= render 'cards/form' %>
+<div class="container">
+	<h1><%= @to_do.title %></h1> 
+	
+	<%= link_to "Back to ToDo Lists" , board_path(@board) , class: "btn btn-sm btn-danger"%>
+	<%= link_to "Edit", edit_board_to_do_path(@board,@to_do.id), class:"btn btn-sm btn-default" %> <br><br>
+	<hr/>
+	<% @to_do.cards.each do |card| %>
+		<div class="well">
+			<%= card.title %>		
+		</div>
+	<% end %>
+	<hr/>
+	<%= render 'cards/form' %>
+</div>

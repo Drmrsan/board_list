@@ -10,7 +10,7 @@ class CardsController < ApplicationController
 		@card = @to_do.cards.create(card_params)
 
 		if @card.save
-			redirect_to @board
+			redirect_to board_to_do_path(@board,@to_do)
 		else
 			render 'new'
 		end
