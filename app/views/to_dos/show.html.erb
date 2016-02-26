@@ -6,7 +6,10 @@
 	<hr/>
 	<% @to_do.cards.each do |card| %>
 		<div class="well">
-			<%= card.title %>		
+			<%= card.title %>
+			<div class="pull-right">
+				<%= link_to "Add Details", board_to_do_card_path(@board,@to_do,card.id) %>
+			</div>		
 		</div>
 	<% end %>
 	<hr/>
