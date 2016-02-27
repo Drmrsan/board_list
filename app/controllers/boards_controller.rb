@@ -4,6 +4,8 @@ class BoardsController < ApplicationController
 
 	def index
 		@boards = Board.all
+		@to_do = ToDo.all
+		@cards = Card.all
 	end
 
 	def new

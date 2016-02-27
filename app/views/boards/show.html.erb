@@ -7,7 +7,25 @@
 
 	<div class="row">
 		<div class="col-md-12">
-			<%= render @board.to_dos %>
+			<% @board.to_dos.each do |todo| %>
+				<div class="col-sm-3 well box">
+					<div class="todo_title">
+						<%= link_to todo.title, edit_board_to_do_path(@board, todo.id) %> <br>
+					</div>
+
+					<% todo.cards.each do |card| %>
+						<div class="well">
+							<%= card.title %>
+							<%= link_to "Add Details", board_to_do_card_path(@board,todo,card.id)%>	
+						</div>
+					<% end %>
+
+					 <%= simple_form_for ([@board, todo, todo.cards.build]) do |f| %>
+						<%= f.input :title, label:false %>
+						<%= f.button :submit %>
+					<% end %>
+				</div> 
+			<% end %>
 			<div class="col-sm-3 well box">
 				<%= render 'to_dos/form' %>
 			</div>
