@@ -3,11 +3,18 @@
 <head>
   <title>BoardList</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,100,300,700,900' rel='stylesheet' type='text/css'>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
 <body>
-
+<div class="flash-message">
+	<% flash.each do |name, msg| %>
+		<div class="alert alert-<%= name == :notice ? "warning" : "success"  %>">
+			<%= msg %>
+		</div>
+	<% end %>
+</div>
 <%= yield %>
 
 </body>

@@ -24,6 +24,12 @@ class CardsController < ApplicationController
 		@card = @to_do.cards.find(params[:id])
 	end
 
+	def destroy
+		@card = Card.find(params[:id])
+		@card.destroy
+		redirect_to :back
+	end
+
 	private
 	def card_params
 		params.require(:card).permit(:title)

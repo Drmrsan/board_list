@@ -15,9 +15,44 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
+body{
+	font-family: "Lato", sans-serif;
+}
+
+.well_board{
+	display:table;
+	position:relative;
+	padding:20px;
+	a:hover{
+		text-decoration: none;
+	}
+}
+
+.well{
+	position:relative;
+	padding:20px;
+	a:hover{
+		text-decoration: none;
+	}
+}
+
+
 .box{
+	margin: 10px 20px 0 0;
+	background: grey;
+}
+
+
+.board_box{
 	margin: 10px 10px;
-	background: yellow;
+	background: grey;
+	width: 200px;
+	height: 100px;
+}
+
+.box-blue{
+	margin: 10px 20px 0 0;
+	background: skyblue;
 }
 
 .todo_title{
@@ -30,7 +65,34 @@
 		color:white;
 		text-decoration: none;
 		&:hover{
-			color:red;
+			color:black;
 		}
 	}
+}
+
+a.board_title{
+	display: table-cell;
+	vertical-align: middle;
+	color:white;
+	text-decoration:none;
+	font-weight: bold;
+	font-size:1.2em;
+}
+
+.glyphicon-remove{
+	color:white;
+	position:absolute;
+	top:7px;
+	right:7px;
+	&:hover{
+		text-decoration:none;
+	}
+}
+
+.grey{
+	color:grey;
+}
+
+.btn{
+	border-radius: none;
 }
