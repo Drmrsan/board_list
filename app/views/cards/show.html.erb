@@ -1,0 +1,14 @@
+<div class="container">
+	<h1 class="board_title"><%= @card.title %> details</h1>
+
+	<div class="well">
+		<%= @card.description %>
+	</div>
+	<div class="well">
+		<%= @card.duedate %>
+	</div>
+
+	<%= link_to "Edit details", edit_board_to_do_card_path, class: "btn btn-sm btn-warning" %>
+	<%= link_to "Back to ToDo Lists", board_path(@board), class: "btn btn-sm btn-default" %>
+</div>
+

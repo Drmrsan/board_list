@@ -1,13 +1,14 @@
 <div class="container">
-	<h1>Board List</h1>
-	<%= link_to "New Board", new_board_path, class:"btn btn-sm btn-success" %>
+	<h1><i class="glyphicon glyphicon-user"></i> My Boards</h1>
+	<br>
 	<div class="row">
 		<% @boards.each do |board| %>
-			<div class="col-sm-2 well_board board_box">
+			<div class="col-md-3 well_board board_box">
 				<%= link_to board.title , board, class:"board_title" %>
 				<%= link_to "", board_path(board), method: :delete, data: {confirm: "Are you sure"} , class: "glyphicon glyphicon-remove" %>
 			</div>
 		<% end %>
+		<%= link_to "Create new Board...", new_board_path, class:"well_board create_board_box board_title col-md-3" %>
 	</div>
 </div>
 

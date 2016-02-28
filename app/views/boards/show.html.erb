@@ -1,59 +1,40 @@
 <div class="container-fluid">
-	<h1><%= @board.title %></h1>
-
-	<%= link_to "Edit Board", edit_board_path(@board), class: "btn btn-sm btn-warning" %>
-	<%= link_to "Back to Boards", boards_path, class: "btn btn-sm btn-default" %>
+	
+	<div class="row board_header">
+		<div class="board_title">
+				<%= @board.title %>
+				<%= link_to "Edit Board", edit_board_path(@board), class: "btn btn-sm btn-warning" %>
+				<%= link_to "Back to Boards", boards_path, class: "btn btn-sm btn-default" %>
+		</div>
+	</div>
 
 	<div class="row">
 		<div class="col-md-12">
 			<% @board.to_dos.each do |todo| %>
-				<div class="col-sm-3 well box">
+				<div class="col-sm-2 well box">
 					<div class="todo_title">
 						<%= link_to todo.title, edit_board_to_do_path(@board, todo.id) %> <br>
 					</div>
 
 					<% todo.cards.each do |card| %>
 						<div class="well">
-							<%= card.title %>
-							<%= link_to "", "", class:"glyphicon glyphicon-edit", 'data-toggle' => "modal", 'data-target'=>"#myModal" %>
-							<%= link_to "", board_to_do_card_path(@board,todo,card.id), method: :delete, data: {confirm: "Are you sure?"}, class: "glyphicon glyphicon-remove grey" %>
-
-							<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-							  <div class="modal-dialog" role="document">
-							    <div class="modal-content">
-							      <div class="modal-header">
-							        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-							        <h4 class="modal-title" id="myModalLabel">Modal title</h4>
-							      </div>
-							      <div class="modal-body">
-
-							      <%= card.id %>
-							      
-							      </div>
-							      <div class="modal-footer">
-							        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-							        <button type="button" class="btn btn-primary">Save changes</button>
-							      </div>
-							    </div>
-							  </div>
-							</div>
-
-
+							<%= link_to card.title, board_to_do_card_path(@board,todo,card.id), class:"" %>
+							<%= link_to "", board_to_do_card_path(@board,todo,card.id), method: :delete, data: {confirm: "Are you sure?"}, class: "glyphicon glyphicon-remove" %>
 						</div>
 					<% end %>
-
 					 <%= simple_form_for ([@board, todo, todo.cards.build]) do |f| %>
 						<%= f.input :title, label:false, placeholder:"Create Card..." %>
 					<% end %>
 
 				</div> 
 			<% end %>
-			<div class="col-sm-3 well box-blue">
+			<div class="col-sm-2 new_todo">
 				<%= render 'to_dos/form' %>
 			</div>
 		</div>
 	</div>
 </div>
+
 
 
 

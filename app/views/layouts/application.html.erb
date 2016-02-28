@@ -7,7 +7,7 @@
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
-<body>
+<body class="<%= @home_page ? 'homepage' : ''%>">
 <div class="flash-message">
 	<% flash.each do |name, msg| %>
 		<div class="alert alert-<%= name == :notice ? "warning" : "success"  %>">
@@ -15,6 +15,7 @@
 		</div>
 	<% end %>
 </div>
+<%= render 'layouts/navigation' %>
 <%= yield %>
 
 </body>

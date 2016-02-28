@@ -3,9 +3,10 @@ class BoardsController < ApplicationController
 	before_action :find_board, only: [:show,:destroy,:edit,:update]
 
 	def index
+		@home_page = true
 		@boards = Board.all
 		@to_do = ToDo.all
-		@card = Card.all
+		@cards = Card.all
 	end
 
 	def new

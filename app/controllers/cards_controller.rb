@@ -1,14 +1,11 @@
 class CardsController < ApplicationController
-	
+	before_action :find_board_and_todo, except: [:destroy]
+	before_action :find_card, only: [:show,:edit,:update]
 	def new
-		@board = Board.find(params[:board_id])
-		@to_do = @board.to_dos.find(params[:to_do_id])
 		@card = Card.new
 	end
 
 	def create
-		@board = Board.find(params[:board_id])
-		@to_do = @board.to_dos.find(params[:to_do_id])
 		@card = @to_do.cards.build(card_params)
 
 		if @card.save
@@ -19,8 +16,6 @@ class CardsController < ApplicationController
 	end
 
 	def show
-		@board = Board.find(params[:board_id])
-		@to_do = @board.to_dos.find(params[:to_do_id])
 		@card = @to_do.cards.find(params[:id])
 	end
 
@@ -30,8 +25,28 @@ class CardsController < ApplicationController
 		redirect_to :back
 	end
 
+	def edit
+	end
+
+	def update
+		if @card.update(card_params)
+			redirect_to board_to_do_card_path
+		else
+			render 'edit'
+		end
+	end
+
 	private
 	def card_params
-		params.require(:card).permit(:title)
+		params.require(:card).permit(:title, :description, :duedate)
+	end
+
+	def find_board_and_todo
+		@board = Board.find(params[:board_id])
+		@to_do = @board.to_dos.find(params[:to_do_id])
+	end
+
+	def find_card
+		@card = @to_do.cards.find(params[:id])
 	end
 end
