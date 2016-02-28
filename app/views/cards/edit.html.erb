@@ -1,13 +1,14 @@
+<div class="container login">
+	<div class="col-md-8 col-md-offset-2">
+		
 
-<div class="container">
-	<h1>Edit: <%= @card.title %></h1>
-
-	 <%= simple_form_for ([@board, @to_do, @card]) do |f| %>
-		<%= f.input :title %>
-		<%= f.input :description %>
-		<%= f.date_field :duedate %>
-		<br>
-		<br>
-		<%= f.button :submit, class: "btn btn-sm btn-default" %>
-	<% end %>
+		 <%= simple_form_for ([@board, @to_do, @card]) do |f| %>
+			<%= f.input :title, placeholder: "Add title..." %>
+			<%= f.input :description, placeholder: "Add description..." %>
+			<%= f.date_field :duedate, label: "Set duedate:" %>
+			<br>
+			<br>
+			<%= f.button :submit, class: "btn btn-sm btn-default" %>
+		<% end %>
+	</div>
 </div>

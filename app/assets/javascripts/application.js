@@ -15,3 +15,11 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require_tree .
+
+$(function(){
+	setTimeout(function(){
+		$('.alert').fadeOut("slow", function(){
+			$(this).remove();
+		})
+	},3000);
+})

@@ -48,9 +48,20 @@ body.homepage{
 
 .navbar-default .navbar-nav > li > a {
     color: white;
+    border-radius: 2px;
     &:hover{
     	color: $highlihgt_blue;
+    	background: white;
     }
+}
+
+.navbar-default .navbar-text {
+    color: #eaeaea;
+}
+
+.welcome_usr{
+	font-size: .7em;
+	font-style: italic;
 }
 
 .board_header{
@@ -74,7 +85,7 @@ body.homepage{
 
 .well{
 	position:relative;
-	padding:20px;
+	padding:12px;
 	a{
 		color: #333;
 		&:hover{
@@ -103,13 +114,18 @@ body.homepage{
 
 .create_board_box{
 	margin: 10px 10px;
-	background: $grey;
+	background: $highlight_grey;
 	width: 300px;
 	height: 100px;
 	border-radius: 2px;
+	font-weight: 300;
+	font-size: 1em;
+	color: #888;
+	text-align:center;
 	&:hover{
-		background: $highlight_grey;
+		background: #eaeaea;
 		text-decoration: none;
+		color: #888;
 	}
 }
 
@@ -121,11 +137,14 @@ body.homepage{
 		color:white;
 		border-color: rgba(0,0,0,.12);
 		box-shadow: none;
+		&:focus{
+			background:white;
+			color: #777;
+		}
 	}
 }
 
 .todo_title{
-	padding:10px;
 	margin-bottom: 10px;
 	a{
 		color: #555;
@@ -149,6 +168,10 @@ a.board_title {
 	color:white;
 	font-weight: bold;
 	font-size:1.4em;
+	span{
+		color: $grey;
+		font-size: .8em;
+	}
 }
 
 .well .glyphicon-remove, .glyphicon-remove{
@@ -166,10 +189,59 @@ a.board_title {
 }
 
 .btn-warning{
-	background: skyblue;
-	border-color: skyblue;
+	background: $blue;
+	border-color: $blue;
 	&:hover{
-		background: #72DDF7;
-		border-color: #72DDF7;
+		background: $highlihgt_blue;
+		border-color: $highlihgt_blue;
 	}
+}
+
+.about, .login{
+	color:white;
+	p.help-block{
+		color: #D9EDF7;
+	}
+}
+
+.alert {
+    padding: 15px;
+    margin-bottom: 0;
+    border: 1px solid transparent;
+    border-radius: 0;
+    position: fixed;
+    z-index: 9999;
+    width:100%;
+    text-align:center;
+}
+
+h2 i.glyphicon-user{
+	font-size: .7em;
+}
+
+.card_details{
+	p{
+		color: #888;
+	}
+	.card_desc{
+			color: #222;
+		}
+}
+input#card_duedate{
+	color: #888;
+}
+
+.comment_box{
+	background: rgba($highlight_grey, .7);
+	color: #222;
+	width: 90%;
+	margin: 20px 10px 0 20px;
+	border-radius: 2px;
+	p{
+		padding: 10px 20px;
+	}
+}
+
+.comment_form{
+	margin-top: 50px;
 }

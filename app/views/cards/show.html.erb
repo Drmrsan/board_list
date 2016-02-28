@@ -1,14 +1,30 @@
-<div class="container">
-	<h1 class="board_title"><%= @card.title %> details</h1>
+<div class="container login">
+	<div class="col-md-8 col-md-offset-2">
 
-	<div class="well">
-		<%= @card.description %>
-	</div>
-	<div class="well">
-		<%= @card.duedate %>
-	</div>
+		<h1 class="board_title"><%= @card.title %> <span> details</span></h1>
 
-	<%= link_to "Edit details", edit_board_to_do_card_path, class: "btn btn-sm btn-warning" %>
-	<%= link_to "Back to ToDo Lists", board_path(@board), class: "btn btn-sm btn-default" %>
+		<div class="well card_details">
+			<p>Description:</p>
+			<p class="card_desc"><%= @card.description %></p>
+		</div>
+		<div class="well card_details">
+			<p>Due Date:</p>
+			<p class="card_desc"><%= @card.duedate %></p>
+		</div>
+
+		<%= link_to "Add details", edit_board_to_do_card_path, class: "btn btn-sm btn-default" %>
+		<%= link_to "Back to ToDo Lists", board_path(@board), class: "btn btn-sm btn-default" %>
+		<% if !@card.comments.blank? %>
+			<h5>Comments:</h5>
+		<% end %>
+
+		<% @card.comments.each do |comment| %>
+			<div class=" comment_box">
+				<p><%= comment.comment %></p>	
+			</div>
+		<% end %>
+
+		<%= render 'comments/form' %>
+	</div>
 </div>
 

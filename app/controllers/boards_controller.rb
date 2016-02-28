@@ -1,5 +1,4 @@
 class BoardsController < ApplicationController
-	
 	before_action :find_board, only: [:show,:destroy,:edit,:update]
 
 	def index
@@ -10,12 +9,12 @@ class BoardsController < ApplicationController
 	end
 
 	def new
-		@board = Board.new
+		@board = current_user.boards.build
 	end
 
 	def create
-		@board = Board.create(board_params)
-
+		@board = current_user.boards.create(board_params)
+		@board.user_id = current_user.id
 		if @board.save
 			redirect_to boards_path
 		else

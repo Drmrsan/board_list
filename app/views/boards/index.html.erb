@@ -1,14 +1,33 @@
 <div class="container">
-	<h1><i class="glyphicon glyphicon-user"></i> My Boards</h1>
+	<h2><i class="glyphicon glyphicon-user"></i>&nbsp; 
+	Welcome 
+	<% if user_signed_in? %>
+		<span class="text-muted welcome_usr"><%= current_user.username || current_user.email %>!</span></h2>
+	<% else %>
+		 to BoardList!</h1>
+	<% end %>
+
 	<br>
 	<div class="row">
-		<% @boards.each do |board| %>
-			<div class="col-md-3 well_board board_box">
-				<%= link_to board.title , board, class:"board_title" %>
-				<%= link_to "", board_path(board), method: :delete, data: {confirm: "Are you sure"} , class: "glyphicon glyphicon-remove" %>
-			</div>
+		<% if user_signed_in? %>
+				<% @boards.each do |board| %>
+					<% if board.user_id == current_user.id %>
+						<div class="col-md-3 well_board board_box">
+							<%= link_to board.title , board, class:"board_title" %>
+							<%= link_to "", board_path(board), method: :delete, data: {confirm: "Are you sure"} , class: "glyphicon glyphicon-remove" %>
+						</div>
+					<% end %>
+				<% end %>
+					<%= link_to "Create new Board...", new_board_path, class:"well_board create_board_box col-md-3" %>
+		<% else %>
+			<h5><%= link_to "Sign Up", new_user_registration_path, class: ""  %> or <%= link_to "Log In", new_user_session_path, class: ""  %> as Test user, and check the application! Hope you like it ;)</h5>
+			<ul>
+				<li>email: test@example.com</li>
+				<li>password: password</li>
+			</ul>
+
 		<% end %>
-		<%= link_to "Create new Board...", new_board_path, class:"well_board create_board_box board_title col-md-3" %>
+
 	</div>
 </div>
 
