@@ -14,7 +14,6 @@ gem 'bootstrap-sass', '~> 3.3', '>= 3.3.6'
 gem 'simple_form', '~> 3.2', '>= 3.2.1'	
 gem 'devise', '~> 3.5', '>= 3.5.6'
 
-
 group :development, :test do
   gem 'byebug'
 end
@@ -24,5 +23,11 @@ group :development do
   gem 'spring'
   gem 'better_errors'
   gem "binding_of_caller"
+end
+
+group :production do
+	gem "pg"
+	gem 'rails_12factor'
+  	gem 'puma'
 end
 
