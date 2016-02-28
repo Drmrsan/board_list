@@ -9,7 +9,7 @@ class CardsController < ApplicationController
 		@card = @to_do.cards.build(card_params)
 
 		if @card.save
-			redirect_to board_path(@board)
+			redirect_to board_path(@board), notice: "Card is succesfully created!"
 		else
 			render 'new'
 		end
@@ -22,7 +22,7 @@ class CardsController < ApplicationController
 	def destroy
 		@card = Card.find(params[:id])
 		@card.destroy
-		redirect_to :back
+		redirect_to :back, notice: "Card is succesfully deleted!"
 	end
 
 	def edit
@@ -30,7 +30,7 @@ class CardsController < ApplicationController
 
 	def update
 		if @card.update(card_params)
-			redirect_to board_to_do_card_path
+			redirect_to board_to_do_card_path, notice: "Card is succesfully updated!"
 		else
 			render 'edit'
 		end

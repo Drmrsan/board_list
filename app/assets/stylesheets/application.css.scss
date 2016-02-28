@@ -184,6 +184,10 @@ a.board_title {
 	}
 }
 
+.todo_title .glyphicon-remove{
+	color: #777;
+}
+
 .btn-sm{
 	border-radius: 0;
 }
@@ -202,6 +206,17 @@ a.board_title {
 	p.help-block{
 		color: #D9EDF7;
 	}
+}
+
+.about{
+	background: white;
+	color: $blue;
+	border-radius: 3px;
+	margin-top: 100px;
+	padding: 50px;
+	-webkit-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+	-moz-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
 .alert {
@@ -224,9 +239,16 @@ h2 i.glyphicon-user{
 		color: #888;
 	}
 	.card_desc{
-			color: #222;
+		color: #222;
+		span{
+			position: absolute;
+			bottom: 10px;
+			right: 5px;
+			color: $blue;
 		}
+	}
 }
+
 input#card_duedate{
 	color: #888;
 }

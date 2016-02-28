@@ -1,4 +1,4 @@
 class Comment < ActiveRecord::Base
 	belongs_to :user
-	belongs_to :card, dependent: :destroy
+	belongs_to :card
 end

@@ -4,12 +4,16 @@
 		<h1 class="board_title"><%= @card.title %> <span> details</span></h1>
 
 		<div class="well card_details">
-			<p>Description:</p>
-			<p class="card_desc"><%= @card.description %></p>
-		</div>
-		<div class="well card_details">
-			<p>Due Date:</p>
-			<p class="card_desc"><%= @card.duedate %></p>
+			<% if !@card.description.blank? %>
+				<p>Description:</p>
+			<% else %>
+				<p class="text-muted">Add some details...</p>
+			<% end %>
+			<p class="card_desc"><%= @card.description %>
+			<% if !@card.description.blank? %>
+				<span class="pull-right"><i>duedate: </i><%= @card.duedate %></span>
+			<% end %>
+			</p>
 		</div>
 
 		<%= link_to "Add details", edit_board_to_do_card_path, class: "btn btn-sm btn-default" %>

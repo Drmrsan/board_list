@@ -8,7 +8,7 @@ class ToDosController < ApplicationController
 		@to_do = @board.to_dos.create(todo_params)
 
 		if @to_do.save
-			redirect_to @board
+			redirect_to @board, notice: "ToDo is succesfully created!"
 		else
 			render 'new'
 		end
@@ -22,10 +22,16 @@ class ToDosController < ApplicationController
 
 	def update
 		if @to_do.update(todo_params)
-			redirect_to @board
+			redirect_to @board, notice: "ToDo is succesfully updated!"
 		else
 			render 'edit'
 		end
+	end
+
+	def destroy
+		@to_do = ToDo.find(params[:id])
+		@to_do.destroy
+		redirect_to :back, notice: "ToDo is succesfully deleted!"
 	end
 
 	private

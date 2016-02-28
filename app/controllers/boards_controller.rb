@@ -16,7 +16,7 @@ class BoardsController < ApplicationController
 		@board = current_user.boards.create(board_params)
 		@board.user_id = current_user.id
 		if @board.save
-			redirect_to boards_path
+			redirect_to boards_path, notice: "Board is succesfully created!"
 		else
 			render 'new'
 		end
@@ -31,7 +31,7 @@ class BoardsController < ApplicationController
 
 	def update
 		if @board.update(board_params)
-			redirect_to boards_path
+			redirect_to boards_path, notice: "Board is succesfully updated!"
 		else
 			render 'edit'
 		end
@@ -39,7 +39,7 @@ class BoardsController < ApplicationController
 
 	def destroy
 		@board.destroy
-		redirect_to boards_path
+		redirect_to boards_path, notice: "Board is succesfully deleted!"
 	end
 
 	private
